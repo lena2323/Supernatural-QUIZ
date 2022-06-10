@@ -64,6 +64,13 @@ button{
     background-color: rgba(30, 255, 0, 0.671);
 }
 
+.nextQuestionContainer{
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    padding-top: 20px;
+}
+
 
     /****************RESPONSIVE********************/
 

@@ -51,7 +51,7 @@ button{
 .imagesInTheContainer{
     max-width: 500px;
     margin: auto;
-  text-align: center;
+    text-align: center;
     padding: 20px;
 }
 
@@ -61,4 +61,40 @@ button{
 
 .right:focus{
     background-color: rgba(30, 255, 0, 0.671);
+}
+
+    /****************RESPONSIVE********************/
+
+@media only screen and (max-width: 900px){
+
+    .containerForEverything{
+        padding: 0%;
+        margin: auto;
+        text-align: center;
+        justify-content: center;
+        padding-top: 20px;
+
+        padding-bottom: 20px;
+    }
+
+    .containerForEverything img{
+        max-width: 400px;
+        padding-bottom: 30px;
+    }
+
+    .containerForEverything p{
+        padding-bottom: 10px;
+    }
+
+.allButtonsContainer{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 0%;
+}
+
+.imagesInTheContainer{
+    padding: 0%;
+}
+
 }

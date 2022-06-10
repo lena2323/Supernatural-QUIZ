@@ -49,19 +49,21 @@ button{
 }
 
 .imagesInTheContainer{
-    max-width: 500px;
+    max-height: 500px;
     margin: auto;
     text-align: center;
     padding: 20px;
 }
 
 .wrong:focus{
-    background-color: rgba(199, 80, 80, 0.493);
+    background-color: rgba(223, 43, 43, 0.493);
 }
+
 
 .right:focus{
     background-color: rgba(30, 255, 0, 0.671);
 }
+
 
     /****************RESPONSIVE********************/
 

@@ -11,7 +11,7 @@
         wrongAnswerButton1.disabled = true;
         wrongAnswerButton2.disabled = true;
         wrongAnswerButton3.disabled = true;
-      };
+    };
 
     const disableButtonForWrong1 = () =>{
         wrongAnswerButton2.disabled = true;
@@ -40,4 +40,3 @@
     wrongAnswerButton2.addEventListener('click', disableButtonForWrong2);
 
     wrongAnswerButton3.addEventListener('click', disableButtonForWrong3);
-

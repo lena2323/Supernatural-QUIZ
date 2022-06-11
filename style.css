@@ -71,6 +71,10 @@ button{
     padding-top: 20px;
 }
 
+.nextQuestionContainer button:active{
+    background-color: rgba(52, 81, 109, 0.425);
+
+}
 
     /****************RESPONSIVE********************/
 

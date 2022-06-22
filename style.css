@@ -3,11 +3,9 @@ body{
     background-image: url(images/Logo-Supernatural-Wallpaper.png);
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: cover 100%;
     margin: auto;
     padding: 0%;
-    margin-top: 100px;
-    margin-bottom: 100px;
     height: 100%;
 }
 
@@ -43,7 +41,7 @@ justify-content: center;
 padding-bottom: 20px;
 }
 
-button{
+.allButtons{
     width: 400px;
     height: 100px;
     background-color: rgba(126, 147, 167, 0.425);

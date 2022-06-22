@@ -56,8 +56,21 @@ startQuizButton.addEventListener('click',() =>{
 
 
 
+const questionInTheQuiz = document.getElementById('questionInTheQuiz')
+const allButtonsContainer = document.getElementById('allButtonsContainer')
+
 
 let shuffledQuestions, currentQuestionIndex
+
+function showQuestion() {
+    questionInTheQuiz.innerText = allQuestions.question
+   
+  }
+
+
+
+
+
 
 
 const allQuestions = [ {
@@ -120,16 +133,11 @@ const allQuestions = [ {
     ]
 
 
+      
 
 
 
 
-
-    function nextQuestion() {
-        shuffledQuestions = questions.sort(() => Math.random() - .5)
-        currentQuestionIndex = 0
-        containerForEverything.classList.remove('hide')
-      };
 
 
 

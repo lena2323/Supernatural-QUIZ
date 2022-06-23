@@ -46,35 +46,26 @@ let nextQuestionContainer = document.getElementById("nextQuestionContainer");
 
 let nextQuestionButton = document.getElementById("nextQuestionButton");
 
+let questionInTheQuiz = document.getElementById("questionInTheQuiz");
 
-startQuizButton.addEventListener('click',() =>{
-    containerForEverything.classList.remove('hide');
-    startQuizContainer.style.display = "none";
-    nextQuestionContainer.classList.remove('hide');
-    
+function startQuiz() {
+    startQuizButton.addEventListener('click', () =>{
+        containerForEverything.classList.remove('hide');
+        startQuizContainer.style.display = "none";
+        nextQuestionContainer.classList.remove('hide');
 });
+displayQuestion();
+}
 
 
 
-const questionInTheQuiz = document.getElementById('questionInTheQuiz')
-const allButtonsContainer = document.getElementById('allButtonsContainer')
+function displayQuestion(){
+    questionInTheQuiz.innerText = allQuestions.question;
+}
 
 
-let shuffledQuestions, currentQuestionIndex
-
-function showQuestion() {
-    questionInTheQuiz.innerText = allQuestions.question
-   
-  }
-
-
-
-
-
-
-
-const allQuestions = [ {
-    question: "Who is this?",
+var allQuestions = [ {
+    question: 'Who is this?',
     answers:[
         { text: 'Dean Winchester', correct: true},
         { text: 'Sam Harvelle' , correct: false},
@@ -82,7 +73,7 @@ const allQuestions = [ {
         { text: 'Death' , correct: false},
         ]
     },
-    {question: "Who is this?",
+    {question: 'Who is this?',
     answers:[
         { text: 'Bobby Singer', correct: true},
         { text: 'Jo Harvelle' , correct: false},

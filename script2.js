@@ -36,38 +36,25 @@
     wrongAnswerButton3.addEventListener('click', disableButtonForWrong3);
 */
 
-
-let startQuizContainer = document.getElementById("startQuizContainer");
-let startQuizButton = document.getElementById("startQuizButton"); 
-let containerForEverything =  document.getElementById("containerForEverything"); 
-
-
-let nextQuestionContainer = document.getElementById("nextQuestionContainer");
-
-let nextQuestionButton = document.getElementById("nextQuestionButton");
-
-let questionInTheQuiz = document.getElementById("questionInTheQuiz");
-
-function startQuiz() {
-    startQuizButton.addEventListener('click', () =>{
-        containerForEverything.classList.remove('hide');
-        startQuizContainer.style.display = "none";
-        nextQuestionContainer.classList.remove('hide');
-});
-displayQuestion();
-}
-
-
-
-function displayQuestion(){
-    questionInTheQuiz.innerText = allQuestions.question;
-}
-
+function getSiblings(e) {
+    let siblings = []; 
+    if(!e.parentNode) {
+        return siblings;
+    }
+    let sibling  = e.parentNode.firstChild;    
+    while (sibling) {
+        if (sibling.nodeType === 1 && sibling !== e) {
+            siblings.push(sibling);
+        }
+        sibling = sibling.nextSibling;
+    }
+    return siblings;
+};
 
 var allQuestions = [ {
     question: 'Who is this?',
     answers:[
-        { text: 'Dean Winchester', correct: true},
+        { text: 'Bobby Singer', correct: true},
         { text: 'Sam Harvelle' , correct: false},
         { text: 'Crowley' , correct: false},
         { text: 'Death' , correct: false},
@@ -122,6 +109,123 @@ var allQuestions = [ {
     ]
     },
     ]
+
+
+let startQuizContainer = document.getElementById("startQuizContainer");
+let startQuizButton = document.getElementById("startQuizButton"); 
+let containerForEverything =  document.getElementById("containerForEverything"); 
+
+
+let nextQuestionContainer = document.getElementById("nextQuestionContainer");
+
+let nextQuestionButton = document.getElementById("nextQuestionButton");
+
+let questionInTheQuiz = document.getElementById("questionInTheQuiz");
+
+let answerButton0 = document.getElementById("answerButton0");
+let answerButton1 = document.getElementById("answerButton1");
+let answerButton2 = document.getElementById("answerButton2");
+let answerButton3 = document.getElementById("answerButton3");
+
+let currentQuestionIndex = 0;
+
+let correctAnswerTotal = 0;
+let wrongAnswerTotal = 0;
+
+let resultContainer = document.getElementById("resultContainer");
+let resultText = document.getElementById("resultText");
+
+
+function resetQuiz() {
+    containerForEverything.classList.add('hide');
+    startQuizContainer.style.display = "flex";
+    nextQuestionContainer.classList.add('hide');
+    startQuizButton.innerText = "Restart?";
+    currentQuestionIndex = 0;
+    resultContainer.classList.remove('hide');
+    resultText.innerText = "Correct answers: " + correctAnswerTotal + "Wrong answers: " + wrongAnswerTotal + "Total answered questions:" + (correctAnswerTotal + wrongAnswerTotal);
+    correctAnswerTotal = 0;
+    wrongAnswerTotal = 0;
+}
+
+function startQuiz() {
+    containerForEverything.classList.remove('hide');
+    startQuizContainer.style.display = "none";
+    nextQuestionContainer.classList.remove('hide');
+    shuffleArray(allQuestions);
+    displayQuestion(currentQuestionIndex);
+}
+
+function displayQuestion(index){
+    
+    if(currentQuestionIndex == allQuestions.length)
+        resetQuiz();
+    else{
+        questionInTheQuiz.innerText = allQuestions[index].question;
+        displayAnswers(index);
+        currentQuestionIndex++;
+    }
+}
+
+function updateAnswerButton(button, answer) {
+    button.innerText = answer.text;
+    if(answer.correct == true) {
+        button.setAttribute("correct", "true");
+    }        
+    else {
+        button.setAttribute("correct", "false");
+    }
+
+    button.disabled = false;
+
+    button.classList.remove("wrong");
+    button.classList.remove("right");
+}
+
+function displayAnswers(index) {
+    shuffleArray(allQuestions[index].answers);
+    
+    updateAnswerButton(answerButton0, allQuestions[index].answers[0]);
+    updateAnswerButton(answerButton1, allQuestions[index].answers[1]);
+    updateAnswerButton(answerButton2, allQuestions[index].answers[2]);
+    updateAnswerButton(answerButton3, allQuestions[index].answers[3]);        
+}
+
+function nextQuestion() {
+    displayQuestion(currentQuestionIndex);
+}
+
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+function clickedAnswer(id) {
+    var button = document.getElementById(id);
+
+    if(button.getAttribute("correct") == "true") {
+        button.classList.remove("wrong");
+        button.classList.add("right");
+        correctAnswerTotal++
+    }        
+    else {
+        button.classList.remove("right");
+        button.classList.add("wrong");
+        wrongAnswerTotal++
+    }
+        
+    var otherButtons = getSiblings(button);
+
+    otherButtons.forEach((buttonToDisable) => {
+        buttonToDisable.disabled = true;
+    });
+
+}
+
+
+
 
 
       

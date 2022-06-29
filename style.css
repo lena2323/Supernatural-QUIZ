@@ -40,8 +40,8 @@ body{
     grid-template-columns: 400px 400px;
     grid-column-gap: 20px;
     grid-row-gap: 20px;
-justify-content: center;
-padding-bottom: 20px;
+    justify-content: center;
+    padding-bottom: 20px;
 
 }
 
@@ -146,6 +146,13 @@ padding-bottom: 20px;
 
 @media only screen and (max-width: 900px){
 
+    body{
+        background-image: url(images/Supernatural-Samsung-Galaxy-Note-9-8-S9-S8-S8-QHD--iphone-12-pro-max.jpg);
+        background-size: 100% ;
+        background-position: top;
+
+    }
+
     .containerForEverything{
         padding: 0%;
         margin: auto;
@@ -153,10 +160,12 @@ padding-bottom: 20px;
         justify-content: center;
         padding-top: 20px;
         padding-bottom: 20px;
+        padding-left: 0px;
+        padding-right: 0px;
     }
 
     .containerForEverything img{
-        max-width: 400px;
+        max-width: 300px;
         padding-bottom: 30px;
     }
 
@@ -175,19 +184,35 @@ padding-bottom: 20px;
     padding: 0%;
 }
 
-.resultContainer{
-
-
-}
 
 
 .startQuizContainer{
-    max-width: 400px;
+    max-width: 350px;
     height: auto;
-    padding: 10px;
+    padding: 0px;
     text-align: center;
     margin: auto;
     margin-top: 50%;
+    padding: 10px;
+}
+
+.startQuizContainer button{
+    max-width: 350px;
+}
+
+.resultContainer{
+    max-width: 350px;
+
+}
+
+.allButtons{
+    max-width: 350px;
+    max-height: 80px;
+}
+
+.question{
+    margin-bottom: 30px;
+    padding: 30px;
 }
 
 }

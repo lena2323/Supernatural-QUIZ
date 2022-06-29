@@ -115,6 +115,7 @@ let image = document.getElementById("image");
 let resultMessage = document.getElementById("resultMessage");
 
 function resetQuiz() {
+
     containerForEverything.classList.add('hide');
     startQuizContainer.style.display = "flex";
     nextQuestionContainer.classList.add('hide');
@@ -122,14 +123,16 @@ function resetQuiz() {
     currentQuestionIndex = 0;
     resultContainer.classList.remove('hide');
     resultText.innerText = "Correct answers: " + correctAnswerTotal + `\n` + "Wrong answers: " + wrongAnswerTotal + `\n` + "Total answered questions:" + (correctAnswerTotal + wrongAnswerTotal);
-    correctAnswerTotal = 0;
-    wrongAnswerTotal = 0;
+    
 
     if ((correctAnswerTotal + wrongAnswerTotal) >= 6)
-        resultMessage.innerText = "Good job!";
-    else {
-        resultMessage.innerText = "Study more idjit!";
-    }
+       {resultMessage.innerText = "Good job!"}
+    
+    else if ((correctAnswerTotal + wrongAnswerTotal) <= 5)
+       {resultMessage.innerText = "Study more idjit!"}
+
+    correctAnswerTotal = 0;
+    wrongAnswerTotal = 0;
 }
 
 function startQuiz() {

@@ -128,7 +128,7 @@ function resetQuiz() {
     if ((correctAnswerTotal + wrongAnswerTotal) >= 6)
         resultMessage.innerText = "Good job!";
     else {
-        resultMessage.innerText = "Study more idjict!";
+        resultMessage.innerText = "Study more idjit!";
     }
 }
 

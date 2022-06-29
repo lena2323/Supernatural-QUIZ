@@ -1,41 +1,3 @@
-
-
-/*
-    const disableButtonForRight = () => {
-        wrongAnswerButton1.disabled = true;
-        wrongAnswerButton2.disabled = true;
-        wrongAnswerButton3.disabled = true;
-    };
-
-    const disableButtonForWrong1 = () =>{
-        wrongAnswerButton2.disabled = true;
-        wrongAnswerButton3.disabled = true;
-        correctAnswerButton.disabled = true;
-
-    }
-
-    const disableButtonForWrong2 = () =>{
-        wrongAnswerButton1.disabled = true;
-        wrongAnswerButton3.disabled = true;
-        correctAnswerButton.disabled = true;
-    }
-
-    const disableButtonForWrong3= () =>{
-        wrongAnswerButton1.disabled = true;
-        wrongAnswerButton2.disabled = true;
-        correctAnswerButton.disabled = true;
-    }
-
-    correctAnswerButton.addEventListener('click', disableButtonForRight);
-    
-
-    wrongAnswerButton1.addEventListener('click', disableButtonForWrong1);
-    
-    wrongAnswerButton2.addEventListener('click', disableButtonForWrong2);
-
-    wrongAnswerButton3.addEventListener('click', disableButtonForWrong3);
-*/
-
 function getSiblings(e) {
     let siblings = []; 
     if(!e.parentNode) {
@@ -52,6 +14,7 @@ function getSiblings(e) {
 };
 
 var allQuestions = [ {
+    correspondingImage: 'images/BobbySinger.jpg',
     question: 'Who is this?',
     answers:[
         { text: 'Bobby Singer', correct: true},
@@ -60,31 +23,39 @@ var allQuestions = [ {
         { text: 'Death' , correct: false},
         ]
     },
-    {question: 'Who is this?',
+    {
+    correspondingImage: 'images/Jo.jpeg',
+    question: 'Who is this?',
     answers:[
-        { text: 'Bobby Singer', correct: true},
-        { text: 'Jo Harvelle' , correct: false},
+        { text: 'Jo Harvelle', correct: true},
+        { text: 'Bobby Singer' , correct: false},
         { text: 'Castiel' , correct: false},
         { text: 'War' , correct: false},
         ]
     },
-    {question: "Who is this?",
+    {
+    correspondingImage: 'images/lucy.jpg',
+    question: "Who is this?",
     answers:[
-        { text: 'Dean JOOJO', correct: true},
+        { text: 'Lucifer', correct: true},
         { text: 'Sam Winchester' , correct: false},
         { text: 'Ruby' , correct: false},
         { text: 'Azazel' , correct: false},
         ]
     },
-    {question: "How do you kill a vampire?",
+    {
+    correspondingImage: 'images/Supernatural_1600.jpg',
+    question: "How do you kill a vampire?",
     answers:[
-        { text: 'You look at him funny', correct: true},
-        { text: 'You cut its head off' , correct: false},
+        { text: 'You cut its head off', correct: true},
+        { text:  'You look at him funny', correct: false},
         { text: 'With silver bullets' , correct: false},
         { text: "You can't" , correct: false},
         ]
     },
-    {question: "Who killed Death?",
+    {    
+    correspondingImage: 'images/HUPUfSB.jpeg',
+    question: "Who killed Death?",
     answers:[
         { text: 'Dean Winchester', correct: true},
         { text: 'Lucifer' , correct: false},
@@ -92,7 +63,9 @@ var allQuestions = [ {
         { text: 'Billie' , correct: false},
         ]
     },
-    {question: "What happened to Bella?",
+    {
+    correspondingImage: 'images/SupernaturalBelaTalbot.jpg',    
+    question: "What happened to Bella?",
     answers:[
         { text: 'She died by hellhounds', correct: true},
         { text: 'She lives' , correct: false},
@@ -100,10 +73,12 @@ var allQuestions = [ {
         { text: 'She stole the colt and killed herelf with it' , correct: false},
         ]
     },
-    {question: "Who is in heaven by the end of the show?",
+    {    
+    correspondingImage: 'images/ruling-over-heaven-supernatural.jpeg',
+    question: "Who is in heaven by the end of the show?",
     answers:[
-        { text: 'Kevin, Dean, Sam, Death', correct: true},
-        { text: 'Ash, Jess, Rufus, Bobby' , correct: false},
+        { text: 'Ash, Jess, Rufus, Bobby', correct: true},
+        { text:  'Kevin, Dean, Sam, Death', correct: false},
         { text: 'Crowley, Sam, Dean, Bobby' , correct: false},
         { text: 'Mary, John, Sam, my grandma (because the show ran for fucking 15 years ffs)' , correct: false},
     ]
@@ -135,6 +110,9 @@ let wrongAnswerTotal = 0;
 let resultContainer = document.getElementById("resultContainer");
 let resultText = document.getElementById("resultText");
 
+let image = document.getElementById("image");
+
+let resultMessage = document.getElementById("resultMessage");
 
 function resetQuiz() {
     containerForEverything.classList.add('hide');
@@ -143,9 +121,15 @@ function resetQuiz() {
     startQuizButton.innerText = "Restart?";
     currentQuestionIndex = 0;
     resultContainer.classList.remove('hide');
-    resultText.innerText = "Correct answers: " + correctAnswerTotal + "Wrong answers: " + wrongAnswerTotal + "Total answered questions:" + (correctAnswerTotal + wrongAnswerTotal);
+    resultText.innerText = "Correct answers: " + correctAnswerTotal + `\n` + "Wrong answers: " + wrongAnswerTotal + `\n` + "Total answered questions:" + (correctAnswerTotal + wrongAnswerTotal);
     correctAnswerTotal = 0;
     wrongAnswerTotal = 0;
+
+    if ((correctAnswerTotal + wrongAnswerTotal) >= 6)
+        resultMessage.innerText = "Good job!";
+    else {
+        resultMessage.innerText = "Study more idjict!";
+    }
 }
 
 function startQuiz() {
@@ -162,6 +146,8 @@ function displayQuestion(index){
         resetQuiz();
     else{
         questionInTheQuiz.innerText = allQuestions[index].question;
+        image.src = allQuestions[index].correspondingImage;
+
         displayAnswers(index);
         currentQuestionIndex++;
     }
@@ -190,6 +176,8 @@ function displayAnswers(index) {
     updateAnswerButton(answerButton2, allQuestions[index].answers[2]);
     updateAnswerButton(answerButton3, allQuestions[index].answers[3]);        
 }
+
+
 
 function nextQuestion() {
     displayQuestion(currentQuestionIndex);

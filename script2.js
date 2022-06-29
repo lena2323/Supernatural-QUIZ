@@ -125,10 +125,10 @@ function resetQuiz() {
     resultText.innerText = "Correct answers: " + correctAnswerTotal + `\n` + "Wrong answers: " + wrongAnswerTotal + `\n` + "Total answered questions:" + (correctAnswerTotal + wrongAnswerTotal);
     
 
-    if ((correctAnswerTotal + wrongAnswerTotal) >= 6)
+    if (correctAnswerTotal >= 6)
        {resultMessage.innerText = "Good job!"}
     
-    else if ((correctAnswerTotal + wrongAnswerTotal) <= 5)
+    else if (correctAnswerTotal <= 5)
        {resultMessage.innerText = "Study more idjit!"}
 
     correctAnswerTotal = 0;

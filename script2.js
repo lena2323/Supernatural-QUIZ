@@ -176,6 +176,7 @@ function startQuiz() {
     shuffleArray(allQuestions);
     displayQuestion(currentQuestionIndex);
     timer()
+    
 }
 
 function displayQuestion(index){
@@ -220,6 +221,7 @@ function displayAnswers(index) {
 function nextQuestion() {
     displayQuestion(currentQuestionIndex);
     timer()
+   
 }
 
 function shuffleArray(array) {
@@ -250,38 +252,43 @@ function clickedAnswer(id) {
     });
 
 }
+var count = 5;
 
 
 function timer(){
     var count = 5;
-
-var interval = setInterval(function(){
-  document.getElementById('count').innerHTML=count;
-  count--;
+    var interval = setInterval(function(){
+    document.getElementById('count').innerHTML=count;
+    count--;
   
-  if (count === -1){
+    if (count === -1){
 
     clearInterval(interval);
+    nextQuestionButton.style.display = "flex"
+
+
+    /*ccc();*/
 
     answerButton0.disabled = true;
     answerButton1.disabled = true;
     answerButton2.disabled = true;
     answerButton3.disabled = true;
-
+} 
+if (count >= 0) {
+    nextQuestionButton.style.display = "none"
+    }
     
 
-
-  }
+    
 }, 1000);
 }
 
+/** 
+function ccc(id) {
+    var button = document.getElementById(id);
 
+    if(button.getAttribute("correct") == "true") {
+        button.classList.add('rightforcorrectdisabled')
+    }        
 
-
-
-
-
-
-
-
-     
+}*/

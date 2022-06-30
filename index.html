@@ -11,10 +11,15 @@
 <body>
     
 
-   
+   <div id="quiz"></div>
     <div class="startQuizContainer show hide" id="startQuizContainer">
         <button id="startQuizButton" class="allButtons" onclick="startQuiz()">Are you ready to rock?</button>
         
+
+
+
+
+
         
         <div id="resultContainer" class="hide resultContainer">
             <p id="resultText"> Your result is:</p>
@@ -32,7 +37,7 @@
         </div>
 
         <div class="allButtonsContainer">
-            <button class="allButtons " id="answerButton0" onclick="clickedAnswer(this.id)"></button>
+            <button class="allButtons " id="answerButton0" onclick="clickedAnswer(this.id)"></a></button>
             <button class="allButtons " id="answerButton1" onclick="clickedAnswer(this.id)"></button>
             <button class="allButtons " id="answerButton2" onclick="clickedAnswer(this.id)"></button>
             <button class="allButtons " id="answerButton3" onclick="clickedAnswer(this.id)"></button>
@@ -42,7 +47,7 @@
     </div>
 
     <div class="nextQuestionContainer hide" id="nextQuestionContainer">
-        <button id="nextQuestionButton" onclick="nextQuestion()" class="allButtons">Next question</button>
+        <a href="#quiz"><button id="nextQuestionButton" onclick="nextQuestion()" class="allButtons">Next question</button></a>
     </div>
 
     <script src="script2.js"></script>

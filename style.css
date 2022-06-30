@@ -9,6 +9,17 @@ body{
 
 }
 
+
+html {
+    scroll-behavior: smooth;
+  }
+
+#quiz{
+    position: absolute;
+    margin-top: -100px;
+
+}
+
 .containerForEverything{
     display: flex;
     flex-direction: column;
@@ -48,10 +59,16 @@ body{
 .allButtons{
     width: 400px;
     height: 100px;
-    background-color: rgba(126, 147, 167, 0.425);
-    border: solid 1px rgba(0, 195, 255, 0.26);
+    background-color: rgba(126, 147, 167, 0.603);
+    border: solid 1px rgba(0, 195, 255, 0.137);
     color: rgb(240, 240, 240);
 
+}
+
+button:disabled{
+    background-color:rgba(73, 84, 95, 0.603);
+    color: rgba(240, 240, 240, 0.288);
+    border: none;
 }
 
 .imagesInTheContainer{

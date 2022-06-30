@@ -43,11 +43,13 @@ html {
     position: relative;
     text-align: center;
     margin-top: 20px;
+    backdrop-filter: blur( 4.5px );
+    -webkit-backdrop-filter: blur( 4.5px );
 
 }
 
 .question{
-    color: white;
+    color: #cae4e6;
     font-size: 40px;
     padding-bottom: 0px;
     margin: 0px;
@@ -69,16 +71,17 @@ html {
     width: 400px;
     height: 100px;
     background-color: rgba(126, 147, 167, 0.603);
-    border: solid 1px rgba(0, 195, 255, 0.137);
-    color: rgb(255, 255, 255);
+    border: solid 1px #03e8f41f;
+    color: #cae4e6;
     font-family: 'Times New Roman', Times, serif;
     letter-spacing: 1px;
-
+    backdrop-filter: blur( 4.5px );
+    -webkit-backdrop-filter: blur( 4.5px );
 }
 
 button:disabled{
     background-color:rgba(73, 84, 95, 0.603);
-    color: rgba(240, 240, 240, 0.288);
+    color: rgba(202, 202, 202, 0.137);
     border: none;
 }
 
@@ -91,12 +94,12 @@ button:disabled{
 }
 
 .wrong{
-    background-color: rgba(223, 43, 43, 0.493);
+    background-color: rgba(199, 64, 64, 0.493);
 }
 
 
 .right{
-    background-color: rgba(30, 255, 0, 0.671);
+    background-color: rgb(98, 184, 87);
 }
 
 .nextQuestionContainer{
@@ -126,6 +129,8 @@ button:disabled{
     height: 600px;
     margin: auto;
     margin-top: 100px;
+    backdrop-filter: blur( 4.5px );
+    -webkit-backdrop-filter: blur( 4.5px );
 }
 
 
@@ -148,14 +153,14 @@ button:disabled{
     color: rgb(240, 240, 240);
     width: 400px;
     max-height: 150px;
-    background-color: rgba(126, 147, 167, 0.425);
-    border: solid 1px rgba(0, 195, 255, 0.26);
     text-align: center;
     margin: auto;
     font-size: x-large;
     margin: auto;    
     margin-bottom: 20px;
     margin-top: 20px;
+    color: #cae4e6;
+
 }
 
 .resultContainer p {

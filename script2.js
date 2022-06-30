@@ -175,6 +175,7 @@ function startQuiz() {
     nextQuestionContainer.classList.remove('hide');
     shuffleArray(allQuestions);
     displayQuestion(currentQuestionIndex);
+    timer()
 }
 
 function displayQuestion(index){
@@ -218,6 +219,7 @@ function displayAnswers(index) {
 
 function nextQuestion() {
     displayQuestion(currentQuestionIndex);
+    timer()
 }
 
 function shuffleArray(array) {
@@ -250,10 +252,30 @@ function clickedAnswer(id) {
 }
 
 
+function timer(){
+    var count = 5;
+
+var interval = setInterval(function(){
+  document.getElementById('count').innerHTML=count;
+  count--;
+  
+  if (count === -1){
+
+    clearInterval(interval);
+
+    answerButton0.disabled = true;
+    answerButton1.disabled = true;
+    answerButton2.disabled = true;
+    answerButton3.disabled = true;
+
+    
 
 
+  }
+}, 1000);
+}
 
-      
+
 
 
 

@@ -301,6 +301,25 @@ a span:nth-child(4){
     }
 }
 
+/************Timer************************/
+
+#count{
+    font-size: xx-large;
+    color: #a0e9ecce;
+    
+}
+
+.rightforcorrectdisabled:disabled{
+    background-color: green;
+}
+
+
+
+.rightforcorrectdisabled:disabled{
+    background-color: green;
+}
+
+
 
     /****************RESPONSIVE********************/
 

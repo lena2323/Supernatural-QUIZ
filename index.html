@@ -11,20 +11,27 @@
 <body>
     
 
-   <div id="quiz"></div>
+    <div id="quiz"></div>
+
     <div class="startQuizContainer show hide" id="startQuizContainer">
-        <button id="startQuizButton" class="allButtons" onclick="startQuiz()">Are you ready to rock?</button>
-        
+    
 
-
-
-
+        <div class="containerForSnakeBorderButton">
+            <a href="#quiz" id="startQuizButton" onclick="startQuiz()">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <p id="startQuizButtonToChange">Are you ready to rock?</p>
+            </a>
+        </div>
 
         
         <div id="resultContainer" class="hide resultContainer">
             <p id="resultText"> Your result is:</p>
             <p id="resultMessage"></p>
         </div>
+
     </div>
 
     <div class="containerForEverything hide" id="containerForEverything">
@@ -46,9 +53,19 @@
 
     </div>
 
+
+
+
     <div class="nextQuestionContainer hide" id="nextQuestionContainer">
-        <a href="#quiz"><button id="nextQuestionButton" onclick="nextQuestion()" class="allButtons">Next question</button></a>
-    </div>
+
+    <a href="#quiz" id="nextQuestionButton" onclick="nextQuestion()">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Next question
+    </a>
+</div>
 
     <script src="script2.js"></script>
 </body>

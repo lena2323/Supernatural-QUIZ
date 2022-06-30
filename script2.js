@@ -70,7 +70,7 @@ var allQuestions = [ {
         { text: 'She died by hellhounds', correct: true},
         { text: 'She lives' , correct: false},
         { text: 'She married and fucked off' , correct: false},
-        { text: 'She stole the colt and killed herelf with it' , correct: false},
+        { text: 'She stole the colt and killed herself with it' , correct: false},
         ]
     },
     {    
@@ -114,12 +114,15 @@ let image = document.getElementById("image");
 
 let resultMessage = document.getElementById("resultMessage");
 
+let startQuizButtonToChange = document.getElementById("startQuizButtonToChange");
+
+
 function resetQuiz() {
 
     containerForEverything.classList.add('hide');
     startQuizContainer.style.display = "flex";
     nextQuestionContainer.classList.add('hide');
-    startQuizButton.innerText = "Restart?";
+    startQuizButtonToChange.innerText = "Restart?";
     currentQuestionIndex = 0;
     resultContainer.classList.remove('hide');
     resultText.innerText = "Correct answers: " + correctAnswerTotal + `\n` + "Wrong answers: " + wrongAnswerTotal + `\n` + "Total answered questions:" + (correctAnswerTotal + wrongAnswerTotal);

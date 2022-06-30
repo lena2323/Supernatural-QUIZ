@@ -175,7 +175,7 @@ a{
     letter-spacing: 4px;
     overflow: hidden;
     justify-content: center;
-    width: 350px;
+    width: 400px;
     height: 100px;
     margin: auto;
     box-sizing: border-box;
@@ -333,6 +333,11 @@ body{
 .question{
     margin-bottom: 30px;
     padding: 30px;
+}
+
+a{
+    width: 350px;
+
 }
 
 }

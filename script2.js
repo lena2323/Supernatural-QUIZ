@@ -24,7 +24,7 @@ var allQuestions = [ {
         ]
     },
     {
-    correspondingImage: 'images/Jo.jpeg',
+    correspondingImage: 'images/800px-Jogun.jpg',
     question: 'Who is this?',
     answers:[
         { text: 'Jo Harvelle', correct: true},
@@ -34,7 +34,7 @@ var allQuestions = [ {
         ]
     },
     {
-    correspondingImage: 'images/lucy.jpg',
+    correspondingImage: 'images/Supernatural-5x19-Hammer-of-the-gods-mark-pellegrino-16732531-1280-720-750x422.jpg',
     question: "Who is this?",
     answers:[
         { text: 'Lucifer', correct: true},
@@ -64,7 +64,7 @@ var allQuestions = [ {
         ]
     },
     {
-    correspondingImage: 'images/SupernaturalBelaTalbot.jpg',    
+    correspondingImage: 'images/MV5BNDA4M2E1MTMtNDYzMy00NDE1LTgyN2MtZjA2YTVkYjY1NWM2XkEyXkFqcGdeQXVyNDUxMjE5NDc@._V1_.jpg',    
     question: "What happened to Bella?",
     answers:[
         { text: 'She died by hellhounds', correct: true},
@@ -83,6 +83,37 @@ var allQuestions = [ {
         { text: 'Mary, John, Sam, my grandma (because the show ran for fucking 15 years ffs)' , correct: false},
     ]
     },
+
+    {    
+    correspondingImage: 'images/1518183590-richard-speight-jr-trickster.jpg',
+    question: "Who is the classiest angel in the garrison?",
+    answers:[
+        { text: 'Gabriel', correct: true},
+        { text:  'Castiel', correct: false},
+        { text: 'Michael' , correct: false},
+        { text: 'Zachariah' , correct: false},
+    ]
+    },
+    {    
+    correspondingImage: 'images/2c7c695f471b4dd4bb9675e19656a885f823c119_hq.jpg',
+    question: "Who broke the first seal on Lucifer's cage?",
+    answers:[
+        { text: 'Dean Winchester', correct: true},
+        { text:  'Sam Winchester', correct: false},
+        { text: 'Lilith' , correct: false},
+        { text: 'Ruby' , correct: false},
+    ]
+    },
+    {    
+    correspondingImage: 'images/1eda1113188e71842f64efca21604b5c.jpg',
+    question: "Who was the first demon?",
+    answers:[
+        { text: 'Lilith', correct: true},
+        { text:  'Ruby', correct: false},
+        { text: 'Cain' , correct: false},
+        { text: 'Azazel' , correct: false},
+    ]
+    },    
     ]
 
 

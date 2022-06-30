@@ -116,7 +116,6 @@ var allQuestions = [ {
     },    
     ]
 
-
 let startQuizContainer = document.getElementById("startQuizContainer");
 let startQuizButton = document.getElementById("startQuizButton"); 
 let containerForEverything =  document.getElementById("containerForEverything"); 
@@ -172,12 +171,11 @@ function resetQuiz() {
 function startQuiz() {
     containerForEverything.classList.remove('hide');
     startQuizContainer.style.display = "none";
-    nextQuestionContainer.classList.remove('hide');
     shuffleArray(allQuestions);
     displayQuestion(currentQuestionIndex);
-    timer()
-    
+    count = 5;
 }
+
 
 function displayQuestion(index){
     
@@ -190,6 +188,8 @@ function displayQuestion(index){
         displayAnswers(index);
         currentQuestionIndex++;
     }
+    timer();
+
 }
 
 function updateAnswerButton(button, answer) {
@@ -220,8 +220,9 @@ function displayAnswers(index) {
 
 function nextQuestion() {
     displayQuestion(currentQuestionIndex);
-    timer()
-   
+    nextQuestionContainer.style.display = "none";
+    timer();
+
 }
 
 function shuffleArray(array) {
@@ -252,11 +253,14 @@ function clickedAnswer(id) {
     });
 
 }
-var count = 5;
+
+
+
+var count = 9;
 
 
 function timer(){
-    var count = 5;
+    var count = 9;
     var interval = setInterval(function(){
     document.getElementById('count').innerHTML=count;
     count--;
@@ -264,10 +268,8 @@ function timer(){
     if (count === -1){
 
     clearInterval(interval);
-    nextQuestionButton.style.display = "flex"
+    nextQuestionContainer.style.display = "flex"
 
-
-    /*ccc();*/
 
     answerButton0.disabled = true;
     answerButton1.disabled = true;
@@ -275,20 +277,20 @@ function timer(){
     answerButton3.disabled = true;
 } 
 if (count >= 0) {
-    nextQuestionButton.style.display = "none"
+    nextQuestionContainer.style.display = "none"
     }
     
-
     
 }, 1000);
+
 }
 
-/** 
-function ccc(id) {
-    var button = document.getElementById(id);
 
-    if(button.getAttribute("correct") == "true") {
-        button.classList.add('rightforcorrectdisabled')
-    }        
 
-}*/
+
+
+
+
+
+
+

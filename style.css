@@ -313,7 +313,7 @@ body{
     margin-top: 20%;
     padding: 10px;
     height: 400px;
-    width: 400px;
+    width: 350px;
 }
 
 .startQuizContainer button{
@@ -321,7 +321,7 @@ body{
 }
 
 .resultContainer{
-    max-width: 400px;
+    max-width: 350px;
 
 }
 

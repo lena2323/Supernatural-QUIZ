@@ -79,11 +79,22 @@ html {
     -webkit-backdrop-filter: blur( 4.5px );
 }
 
+.allButtons:hover{
+    background-color: rgba(90, 105, 119, 0.603);
+
+}
+
+
 button:disabled{
     background-color:rgba(73, 84, 95, 0.603);
     color: rgba(202, 202, 202, 0.137);
     border: none;
 }
+
+button:disabled:hover{
+    background-color:rgba(73, 84, 95, 0.603);
+}
+
 
 .imagesInTheContainer{
     max-height: 350px;
@@ -100,6 +111,20 @@ button:disabled{
 
 .right{
     background-color: rgb(98, 184, 87);
+}
+
+
+
+.wrong:hover{
+    background-color: rgba(199, 64, 64, 0.493);
+
+}
+
+
+
+.right:hover{
+    background-color: rgb(98, 184, 87);
+
 }
 
 .nextQuestionContainer{
@@ -176,7 +201,10 @@ button:disabled{
 
 /******Start quiz button with snake border**********/
 
+a:hover{
+    background-color: rgba(62, 62, 65, 0.418);
 
+}
 
 a{
     position: relative;

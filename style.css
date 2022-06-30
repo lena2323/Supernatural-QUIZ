@@ -175,10 +175,11 @@ a{
     letter-spacing: 4px;
     overflow: hidden;
     justify-content: center;
-    width: 400px;
+    width: 350px;
     height: 100px;
     margin: auto;
     box-sizing: border-box;
+    text-align: center;
     
 }
 

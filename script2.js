@@ -146,8 +146,6 @@ let resultMessage = document.getElementById("resultMessage");
 
 let startQuizButtonToChange = document.getElementById("startQuizButtonToChange");
 
-
-
 // TIMER
 
 let countdownContainer = document.getElementById("countdown");
@@ -184,7 +182,6 @@ function startQuiz() {
 
 
 function displayQuestion(index){
-    
     if(currentQuestionIndex == allQuestions.length)
         resetQuiz();
     else{
@@ -195,6 +192,9 @@ function displayQuestion(index){
         currentQuestionIndex++;
     }
 
+    countdownContainer.style.display = "block";
+
+   
 }
 
 function updateAnswerButton(button, answer) {
@@ -218,7 +218,9 @@ function displayAnswers(index) {
     updateAnswerButton(answerButton0, allQuestions[index].answers[0]);
     updateAnswerButton(answerButton1, allQuestions[index].answers[1]);
     updateAnswerButton(answerButton2, allQuestions[index].answers[2]);
-    updateAnswerButton(answerButton3, allQuestions[index].answers[3]);        
+    updateAnswerButton(answerButton3, allQuestions[index].answers[3]);      
+  
+  
 }
 
 
@@ -226,7 +228,10 @@ function displayAnswers(index) {
 function nextQuestion() {
     displayQuestion(currentQuestionIndex);
     nextQuestionContainer.style.display = "none";
+
     countdownContainer.style.display = "block";
+    notPressed();
+  
 
 }
 
@@ -238,6 +243,7 @@ function shuffleArray(array) {
 }
 
 function clickedAnswer(id) {
+
     var button = document.getElementById(id);
 
     if(button.getAttribute("correct") == "true") {
@@ -246,6 +252,8 @@ function clickedAnswer(id) {
         nextQuestionContainer.style.display = "block";
         countdownContainer.style.display = "none";
         correctAnswerTotal++
+        clearTimeout(btnTimer); 
+
     }        
     else {
         button.classList.remove("right");
@@ -253,9 +261,9 @@ function clickedAnswer(id) {
         nextQuestionContainer.style.display = "block";
         countdownContainer.style.display = "none";
         wrongAnswerTotal++
+        clearTimeout(btnTimer); 
 
     }
-        
     var otherButtons = getSiblings(button);
 
     otherButtons.forEach((buttonToDisable) => {
@@ -267,8 +275,27 @@ function clickedAnswer(id) {
 
 
 
+var btnTimer = setTimeout(notPressed,5000);
+
+
+function notPressed() {
+
+    answerButton0.disabled = true;
+    answerButton1.disabled = true;
+    answerButton2.disabled = true;
+    answerButton3.disabled = true;
+    nextQuestionContainer.style.display = "block";
+
+  }
 
 
 
 
 
+
+
+
+
+
+
+    

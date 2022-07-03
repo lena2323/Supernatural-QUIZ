@@ -147,6 +147,13 @@ let resultMessage = document.getElementById("resultMessage");
 let startQuizButtonToChange = document.getElementById("startQuizButtonToChange");
 
 
+
+// TIMER
+
+let countdownContainer = document.getElementById("countdown");
+
+
+
 function resetQuiz() {
 
     containerForEverything.classList.add('hide');
@@ -173,7 +180,6 @@ function startQuiz() {
     startQuizContainer.style.display = "none";
     shuffleArray(allQuestions);
     displayQuestion(currentQuestionIndex);
-    count = 5;
 }
 
 
@@ -188,7 +194,6 @@ function displayQuestion(index){
         displayAnswers(index);
         currentQuestionIndex++;
     }
-    timer();
 
 }
 
@@ -221,7 +226,7 @@ function displayAnswers(index) {
 function nextQuestion() {
     displayQuestion(currentQuestionIndex);
     nextQuestionContainer.style.display = "none";
-    timer();
+    countdownContainer.style.display = "block";
 
 }
 
@@ -238,12 +243,17 @@ function clickedAnswer(id) {
     if(button.getAttribute("correct") == "true") {
         button.classList.remove("wrong");
         button.classList.add("right");
+        nextQuestionContainer.style.display = "block";
+        countdownContainer.style.display = "none";
         correctAnswerTotal++
     }        
     else {
         button.classList.remove("right");
         button.classList.add("wrong");
+        nextQuestionContainer.style.display = "block";
+        countdownContainer.style.display = "none";
         wrongAnswerTotal++
+
     }
         
     var otherButtons = getSiblings(button);
@@ -253,38 +263,6 @@ function clickedAnswer(id) {
     });
 
 }
-
-
-
-var count = 9;
-
-
-function timer(){
-    var count = 9;
-    var interval = setInterval(function(){
-    document.getElementById('count').innerHTML=count;
-    count--;
-  
-    if (count === -1){
-
-    clearInterval(interval);
-    nextQuestionContainer.style.display = "flex"
-
-
-    answerButton0.disabled = true;
-    answerButton1.disabled = true;
-    answerButton2.disabled = true;
-    answerButton3.disabled = true;
-} 
-if (count >= 0) {
-    nextQuestionContainer.style.display = "none"
-    }
-    
-    
-}, 1000);
-
-}
-
 
 
 

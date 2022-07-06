@@ -116,7 +116,7 @@ var allQuestions = [ {
     },    
     ]
 
-let configuredCount = 3;
+let configuredCount = 10;
 
 let startQuizContainer = document.getElementById("startQuizContainer");
 let startQuizButton = document.getElementById("startQuizButton"); 

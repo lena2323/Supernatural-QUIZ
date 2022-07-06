@@ -311,17 +311,23 @@ a span:nth-child(4){
 
 .rightforcorrectdisabled{
     background-color: rgb(0, 255, 0);
+    color: #cae4e6 !important;
 
 }
 
 
 
 .rightforcorrectdisabled:disabled{
-    background-color: green;
+    background-color: rgba(3, 185, 3, 0.329);
 }
 
-.rightforcorrectdisabled:disabled:hover:focus{
-    background-color: green;
+.rightforcorrectdisabled:disabled{
+    background-color: rgba(3, 185, 3, 0.329);
+
+}
+
+button.rightforcorrectdisabled:hover{
+    background-color: rgba(3, 185, 3, 0.329);
 
 }
 

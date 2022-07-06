@@ -97,8 +97,8 @@ button:disabled:hover{
 
 
 .imagesInTheContainer{
-    max-height: 350px;
-    max-width: 700px;
+    height: 350px;
+    width: auto;
     margin: auto;
     text-align: center;
     padding: 20px;
@@ -358,7 +358,6 @@ body{
 .containerForEverything img{
     max-width: 300px;
     padding-bottom: 30px;
-    max-height: 200px;
 }
 
 .containerForEverything p{

@@ -116,6 +116,8 @@ var allQuestions = [ {
     },    
     ]
 
+let configuredCount = 3;
+
 let startQuizContainer = document.getElementById("startQuizContainer");
 let startQuizButton = document.getElementById("startQuizButton"); 
 let containerForEverything =  document.getElementById("containerForEverything"); 
@@ -146,11 +148,7 @@ let resultMessage = document.getElementById("resultMessage");
 
 let startQuizButtonToChange = document.getElementById("startQuizButtonToChange");
 
-// TIMER
-
-let countdownContainer = document.getElementById("countdown");
-
-
+var questionTimerInterval;
 
 function resetQuiz() {
 
@@ -182,6 +180,9 @@ function startQuiz() {
 
 
 function displayQuestion(index){
+
+    document.getElementById('count').innerHTML=configuredCount;
+    
     if(currentQuestionIndex == allQuestions.length)
         resetQuiz();
     else{
@@ -190,11 +191,10 @@ function displayQuestion(index){
 
         displayAnswers(index);
         currentQuestionIndex++;
+
+        timer();
     }
 
-    countdownContainer.style.display = "block";
-
-   
 }
 
 function updateAnswerButton(button, answer) {
@@ -210,6 +210,8 @@ function updateAnswerButton(button, answer) {
 
     button.classList.remove("wrong");
     button.classList.remove("right");
+    button.classList.remove("rightforcorrectdisabled");
+
 }
 
 function displayAnswers(index) {
@@ -218,9 +220,7 @@ function displayAnswers(index) {
     updateAnswerButton(answerButton0, allQuestions[index].answers[0]);
     updateAnswerButton(answerButton1, allQuestions[index].answers[1]);
     updateAnswerButton(answerButton2, allQuestions[index].answers[2]);
-    updateAnswerButton(answerButton3, allQuestions[index].answers[3]);      
-  
-  
+    updateAnswerButton(answerButton3, allQuestions[index].answers[3]);        
 }
 
 
@@ -228,11 +228,6 @@ function displayAnswers(index) {
 function nextQuestion() {
     displayQuestion(currentQuestionIndex);
     nextQuestionContainer.style.display = "none";
-
-    countdownContainer.style.display = "block";
-    notPressed();
-  
-
 }
 
 function shuffleArray(array) {
@@ -242,60 +237,72 @@ function shuffleArray(array) {
     }
 }
 
-function clickedAnswer(id) {
+var count = configuredCount;
 
+function clickedAnswer(id) {
     var button = document.getElementById(id);
+
+    clearInterval(questionTimerInterval);
+    document.getElementById('count').innerHTML=count;
+    count = configuredCount;    
 
     if(button.getAttribute("correct") == "true") {
         button.classList.remove("wrong");
         button.classList.add("right");
-        nextQuestionContainer.style.display = "block";
-        countdownContainer.style.display = "none";
-        correctAnswerTotal++
-        clearTimeout(btnTimer); 
-
+        correctAnswerTotal++;
     }        
     else {
         button.classList.remove("right");
         button.classList.add("wrong");
-        nextQuestionContainer.style.display = "block";
-        countdownContainer.style.display = "none";
-        wrongAnswerTotal++
-        clearTimeout(btnTimer); 
-
+        wrongAnswerTotal++;
     }
+        
     var otherButtons = getSiblings(button);
 
     otherButtons.forEach((buttonToDisable) => {
-        buttonToDisable.disabled = true;
+        if(buttonToDisable.getAttribute("correct") == "true") {
+            buttonToDisable.classList.remove("wrong");
+            buttonToDisable.classList.add("rightforcorrectdisabled");
+        }       
+        buttonToDisable.disabled = true;         
     });
 
+    nextQuestionContainer.style.display = "flex";
+
+}
+
+function timer(){
+    count = configuredCount;
+    questionTimerInterval = setInterval(function(){                
+
+        if (count > 0) {
+            count--;
+            nextQuestionContainer.style.display = "none";
+            document.getElementById('count').innerHTML=count;
+        }
+        else {
+            clearInterval(questionTimerInterval);
+            nextQuestionContainer.style.display = "flex";
+
+
+            answerButton0.disabled = true;
+            answerButton1.disabled = true;
+            answerButton2.disabled = true;
+            answerButton3.disabled = true;
+
+            count = configuredCount;
+        }      
+        
+    },
+    1000);
 }
 
 
 
 
-var btnTimer = setTimeout(notPressed,5000);
-
-
-function notPressed() {
-
-    answerButton0.disabled = true;
-    answerButton1.disabled = true;
-    answerButton2.disabled = true;
-    answerButton3.disabled = true;
-    nextQuestionContainer.style.display = "block";
-
-  }
 
 
 
 
 
 
-
-
-
-
-
-    
